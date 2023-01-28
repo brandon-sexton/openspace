@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.coordinates.states &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.time" href="openspace.time.html" />
+    <link rel="prev" title="openspace.coordinates.positions" href="openspace.coordinates.positions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.math.html">openspace.math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.planning.html">openspace.planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="openspace.coordinates.elements.html">openspace.coordinates.elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.coordinates.positions.html">openspace.coordinates.positions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.coordinates.states</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.GCRF"><code class="docutils literal notranslate"><span class="pre">GCRF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.HCW"><code class="docutils literal notranslate"><span class="pre">HCW</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.IJK"><code class="docutils literal notranslate"><span class="pre">IJK</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.ITRF"><code class="docutils literal notranslate"><span class="pre">ITRF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states.StateConvert"><code class="docutils literal notranslate"><span class="pre">StateConvert</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states._StateConvertGCRF"><code class="docutils literal notranslate"><span class="pre">_StateConvertGCRF</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.coordinates.states._StateConvertHCW"><code class="docutils literal notranslate"><span class="pre">_StateConvertHCW</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.coordinates.html">openspace.coordinates</a> &raquo;</li>
+        
+      <li>openspace.coordinates.states</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.coordinates.states.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.coordinates.states">
+<span id="openspace-coordinates-states"></span><h1>openspace.coordinates.states<a class="headerlink" href="#module-openspace.coordinates.states" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GCRF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.GCRF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#openspace.coordinates.states.State" title="openspace.coordinates.states.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations and modeling in the Geocentric Celestial Reference Frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity of the state</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_earth">
+<span class="sig-name descname"><span class="pre">acceleration_from_earth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_earth" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the acceleration on the state due to earth’s gravity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector representing the acceleration from earth</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_gravity">
+<span class="sig-name descname"><span class="pre">acceleration_from_gravity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_gravity" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the gravity due to a nonspherical earth</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector representing the acceleration due to gravity</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_moon">
+<span class="sig-name descname"><span class="pre">acceleration_from_moon</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_moon" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the acceleration on the state due to the moon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector representing the acceleration from the moon</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_srp">
+<span class="sig-name descname"><span class="pre">acceleration_from_srp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_srp" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the acceleration on the state from solar radiation pressure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector representing the acceleration from srp</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_sun">
+<span class="sig-name descname"><span class="pre">acceleration_from_sun</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_sun" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the acceleration on the state due to the sun</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector representing the acceleration from the sun</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.acceleration_from_thrust">
+<span class="sig-name descname"><span class="pre">acceleration_from_thrust</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.acceleration_from_thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>retrieve the stored acceleration to be applied from thrusters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the current acceleration vector in the GCRF frame</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.derivative">
+<span class="sig-name descname"><span class="pre">derivative</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.derivative" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a list with elements 0 == velocity and 1 == acceleration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of velocity and acceleration</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.moon_vector">
+<span class="sig-name descname"><span class="pre">moon_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.moon_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector pointing from the calling state to the moon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector originating at the calling state and terminating at the moon</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.srp_scalar">
+<span class="sig-name descname"><span class="pre">srp_scalar</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.coordinates.states.GCRF.srp_scalar" title="Permalink to this definition">¶</a></dt>
+<dd><p>scalar used for srp acceleration calculations</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.sun_vector">
+<span class="sig-name descname"><span class="pre">sun_vector</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.GCRF.sun_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector pointing from the calling state to the sun</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector originating at the calling state and terminating at the sun</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.thrust">
+<span class="sig-name descname"><span class="pre">thrust</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.coordinates.states.GCRF.thrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>acceleration due to thrust</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.GCRF.use_perturbations">
+<span class="sig-name descname"><span class="pre">use_perturbations</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#openspace.coordinates.states.GCRF.use_perturbations" title="Permalink to this definition">¶</a></dt>
+<dd><p>boolean to determine if perturbations are modeled during propagation</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.HCW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">HCW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.HCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#openspace.coordinates.states.State" title="openspace.coordinates.states.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.HCW.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.coordinates.states.HCW.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations and modeling in the HCW Frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity of the state</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.HCW.frame_matrix">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frame_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><span class="pre">GCRF</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.HCW.frame_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a radial, in-track, cross-track axes matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>origin</strong> (<a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><em>GCRF</em></a>) – inertial state that acts as the origin for the RIC frame</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matrix with rows of radial, in-track, and cross-track</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.HCW.from_state_vector">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_state_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state_vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.coordinates.states.HCW" title="openspace.coordinates.states.HCW"><span class="pre">HCW</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.HCW.from_state_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a hill state of from a full state vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state_vec</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – 6-dimensional vector of position and velocity</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>HCW state with arbitrary epoch</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.coordinates.states.HCW" title="openspace.coordinates.states.HCW">HCW</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.IJK">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">IJK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.IJK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#openspace.coordinates.states.State" title="openspace.coordinates.states.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.IJK.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.coordinates.states.IJK.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations and modeling in the Geocentric Equatorial Coordinate System</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity of the state</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.ITRF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ITRF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.ITRF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#openspace.coordinates.states.State" title="openspace.coordinates.states.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.ITRF.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.coordinates.states.ITRF.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations and modeling in the International Terrestrial Reference Frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity of the state</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.ITRF.from_fixed">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_fixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.coordinates.states.ITRF" title="openspace.coordinates.states.ITRF"><span class="pre">ITRF</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states.ITRF.from_fixed" title="Permalink to this definition">¶</a></dt>
+<dd><p>create an ITRF state from a position fixed to the Earth surface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ITRF state with velocity vector == 0</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.coordinates.states.ITRF" title="openspace.coordinates.states.ITRF">ITRF</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.coordinates.states.State.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations for time-dependent states</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time for which the position and velocity are valid</p></li>
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position of the state</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity of the state</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#openspace.coordinates.states.State.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a duplicate of the calling state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.epoch">
+<span class="sig-name descname"><span class="pre">epoch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></em><a class="headerlink" href="#openspace.coordinates.states.State.epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>time for which the position and velocity are valid</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.position">
+<span class="sig-name descname"><span class="pre">position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.coordinates.states.State.position" title="Permalink to this definition">¶</a></dt>
+<dd><p>position of the state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.vector">
+<span class="sig-name descname"><span class="pre">vector</span></span><a class="headerlink" href="#openspace.coordinates.states.State.vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>state vector whose elements are equal to that of the position and velocity unpacked</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.vector_list">
+<span class="sig-name descname"><span class="pre">vector_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#openspace.coordinates.states.State.vector_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a list of the position and velocity vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of indices 0 == position and 1 == velocity</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.State.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.coordinates.states.State.velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>velocity of the state</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states.StateConvert">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">StateConvert</span></span><a class="headerlink" href="#openspace.coordinates.states.StateConvert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to perform state conversions</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.StateConvert.gcrf">
+<span class="sig-name descname"><span class="pre">gcrf</span></span><a class="headerlink" href="#openspace.coordinates.states.StateConvert.gcrf" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to convert from GCRF to other frames</p>
+<p>alias of <a class="reference internal" href="#openspace.coordinates.states._StateConvertGCRF" title="openspace.coordinates.states._StateConvertGCRF"><code class="xref py py-class docutils literal notranslate"><span class="pre">_StateConvertGCRF</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.coordinates.states.StateConvert.hcw">
+<span class="sig-name descname"><span class="pre">hcw</span></span><a class="headerlink" href="#openspace.coordinates.states.StateConvert.hcw" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to convert from HCW to other frames</p>
+<p>alias of <a class="reference internal" href="#openspace.coordinates.states._StateConvertHCW" title="openspace.coordinates.states._StateConvertHCW"><code class="xref py py-class docutils literal notranslate"><span class="pre">_StateConvertHCW</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states._StateConvertGCRF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_StateConvertGCRF</span></span><a class="headerlink" href="#openspace.coordinates.states._StateConvertGCRF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to perform state conversions from GCRF</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states._StateConvertGCRF.to_hcw">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_hcw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><span class="pre">GCRF</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><span class="pre">GCRF</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.coordinates.states.HCW" title="openspace.coordinates.states.HCW"><span class="pre">HCW</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states._StateConvertGCRF.to_hcw" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a state in the HCW frame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><em>GCRF</em></a>) – state which represents the origin of the relative frame</p></li>
+<li><p><strong>state</strong> (<a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><em>GCRF</em></a>) – state to be modeled in the Hill frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>HCW state</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.coordinates.states.HCW" title="openspace.coordinates.states.HCW">HCW</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.coordinates.states._StateConvertHCW">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_StateConvertHCW</span></span><a class="headerlink" href="#openspace.coordinates.states._StateConvertHCW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to perform conversions from the Hill frame</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.coordinates.states._StateConvertHCW.to_gcrf">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_gcrf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.coordinates.states.HCW" title="openspace.coordinates.states.HCW"><span class="pre">HCW</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><span class="pre">GCRF</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><span class="pre">GCRF</span></a></span></span><a class="headerlink" href="#openspace.coordinates.states._StateConvertHCW.to_gcrf" title="Permalink to this definition">¶</a></dt>
+<dd><p>create an inertial state for the calling state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>origin</strong> (<a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF"><em>GCRF</em></a>) – inertial state that acts as the origin for the relative state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inertial state of the relative spacecraft</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.coordinates.states.GCRF" title="openspace.coordinates.states.GCRF">GCRF</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.time.html" class="btn btn-neutral float-right" title="openspace.time" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.coordinates.positions.html" class="btn btn-neutral float-left" title="openspace.coordinates.positions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

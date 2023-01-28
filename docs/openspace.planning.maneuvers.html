@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.planning.maneuvers &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.propagators" href="openspace.propagators.html" />
+    <link rel="prev" title="openspace.planning" href="openspace.planning.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.math.html">openspace.math</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.planning.html">openspace.planning</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.planning.maneuvers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.planning.maneuvers.Hohmann"><code class="docutils literal notranslate"><span class="pre">Hohmann</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.planning.maneuvers.VisViva"><code class="docutils literal notranslate"><span class="pre">VisViva</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.planning.html">openspace.planning</a> &raquo;</li>
+        
+      <li>openspace.planning.maneuvers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.planning.maneuvers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.planning.maneuvers">
+<span id="openspace-planning-maneuvers"></span><h1>openspace.planning.maneuvers<a class="headerlink" href="#module-openspace.planning.maneuvers" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Hohmann</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate details of a hohmann transfer going from one circular orbit to another</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r1</strong> (<em>float</em>) – sma of initial circular orbit</p></li>
+<li><p><strong>r2</strong> (<em>float</em>) – sma of final circular orbit</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.delta_v_1">
+<span class="sig-name descname"><span class="pre">delta_v_1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.delta_v_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>magnitude of the first burn in km/s</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.delta_v_2">
+<span class="sig-name descname"><span class="pre">delta_v_2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.delta_v_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>magnitude of the second burn in km/s</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.final_velocity">
+<span class="sig-name descname"><span class="pre">final_velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.final_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>velocity after the second burn in km/s</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.initial_velocity">
+<span class="sig-name descname"><span class="pre">initial_velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.initial_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>velocity prior to the first burn in km/s</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.transfer_velocity_1">
+<span class="sig-name descname"><span class="pre">transfer_velocity_1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.transfer_velocity_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>velocity after the first burn in km/s</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.Hohmann.transfer_velocity_2">
+<span class="sig-name descname"><span class="pre">transfer_velocity_2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.planning.maneuvers.Hohmann.transfer_velocity_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>velocity prior to the second burn in km/s</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.VisViva">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VisViva</span></span><a class="headerlink" href="#openspace.planning.maneuvers.VisViva" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to perform calculations related to the vis-viva law</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>velocities for various orbit conditions</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.VisViva.circular_velocity">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">circular_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.planning.maneuvers.VisViva.circular_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the velocity of a circular orbit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>r</strong> (<em>float</em>) – sma of the circular orbit in km</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>velocity in km/s</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.planning.maneuvers.VisViva.eccentric_velocity">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eccentric_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.planning.maneuvers.VisViva.eccentric_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the velocity at a position in an eccentric orbit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float</em>) – current radius in km</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in km</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>velocity at the given radius in km/s</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.propagators.html" class="btn btn-neutral float-right" title="openspace.propagators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.planning.html" class="btn btn-neutral float-left" title="openspace.planning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

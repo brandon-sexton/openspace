@@ -1,0 +1,1412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.math.functions &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.math.linalg" href="openspace.math.linalg.html" />
+    <link rel="prev" title="openspace.math.constants" href="openspace.math.constants.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.math.html">openspace.math</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="openspace.math.constants.html">openspace.math.constants</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.math.functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.ArealVelocity"><code class="docutils literal notranslate"><span class="pre">ArealVelocity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.ArgumentOfLatitude"><code class="docutils literal notranslate"><span class="pre">ArgumentOfLatitude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.ArgumentOfPerigee"><code class="docutils literal notranslate"><span class="pre">ArgumentOfPerigee</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Conversions"><code class="docutils literal notranslate"><span class="pre">Conversions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.EccentricAnomaly"><code class="docutils literal notranslate"><span class="pre">EccentricAnomaly</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Eccentricity"><code class="docutils literal notranslate"><span class="pre">Eccentricity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.EquationsOfMotion"><code class="docutils literal notranslate"><span class="pre">EquationsOfMotion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Flattening"><code class="docutils literal notranslate"><span class="pre">Flattening</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Inclination"><code class="docutils literal notranslate"><span class="pre">Inclination</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.LegendrePolynomial"><code class="docutils literal notranslate"><span class="pre">LegendrePolynomial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.MeanAnomaly"><code class="docutils literal notranslate"><span class="pre">MeanAnomaly</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.MeanMotion"><code class="docutils literal notranslate"><span class="pre">MeanMotion</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Period"><code class="docutils literal notranslate"><span class="pre">Period</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.Radius"><code class="docutils literal notranslate"><span class="pre">Radius</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.RightAscensionNode"><code class="docutils literal notranslate"><span class="pre">RightAscensionNode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.SemiMajorAxis"><code class="docutils literal notranslate"><span class="pre">SemiMajorAxis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.SemiMinorAxis"><code class="docutils literal notranslate"><span class="pre">SemiMinorAxis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.SemiParameter"><code class="docutils literal notranslate"><span class="pre">SemiParameter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.SpecificMechanicalEnergy"><code class="docutils literal notranslate"><span class="pre">SpecificMechanicalEnergy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.TrueAnomaly"><code class="docutils literal notranslate"><span class="pre">TrueAnomaly</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.VisVivaVelocity"><code class="docutils literal notranslate"><span class="pre">VisVivaVelocity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.functions.sign"><code class="docutils literal notranslate"><span class="pre">sign()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.math.linalg.html">openspace.math.linalg</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.planning.html">openspace.planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.math.html">openspace.math</a> &raquo;</li>
+        
+      <li>openspace.math.functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.math.functions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.math.functions">
+<span id="openspace-math-functions"></span><h1>openspace.math.functions<a class="headerlink" href="#module-openspace.math.functions" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.ArealVelocity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArealVelocity</span></span><a class="headerlink" href="#openspace.math.functions.ArealVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to calculate areal velocities of an orbit</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The term areal velocity is used synonymously for the momentum of an orbit
+and will commonly be referenced as <span class="math notranslate nohighlight">\(h\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.ArealVelocity.from_mu_p">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.ArealVelocity.from_mu_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the areal velocity using equation 1-19 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[h = \sqrt{{\mu}p}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>p</strong> (<em>float</em>) – semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>areal velocity in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.ArealVelocity.from_r_v">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_r_v</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.functions.ArealVelocity.from_r_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the momentum vector using equation 1-15 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[\vec{h} = \vec{r} \times \vec{v}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position vector in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – velocity vector in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>areal velocity vector in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.ArealVelocity.from_r_v_phi">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_r_v_phi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.ArealVelocity.from_r_v_phi" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the areal velocity using equation 1-16 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[h = rv\cos{(\phi_{fpa})}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float</em>) – magnitude of the position vector in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>v</strong> (<em>float</em>) – magnitude of the velocity vector in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p></li>
+<li><p><strong>phi</strong> (<em>float</em>) – flight path angle <span class="math notranslate nohighlight">\(\frac{\pi}{2} - \measuredangle\vec{r}\vec{v}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>areal velocity in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.ArgumentOfLatitude">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArgumentOfLatitude</span></span><a class="headerlink" href="#openspace.math.functions.ArgumentOfLatitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve argument of latitude</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>argument of latitude will commonly be referenced as <span class="math notranslate nohighlight">\(u\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.ArgumentOfLatitude.from_r_w">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_r_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.ArgumentOfLatitude.from_r_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the argument of latitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – position vector in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>w</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – normalized areal velocity vector in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>argument of latitude in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>find equation reference</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.ArgumentOfPerigee">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ArgumentOfPerigee</span></span><a class="headerlink" href="#openspace.math.functions.ArgumentOfPerigee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve argument of perigee</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>argument of perigee will commonly be referenced as <span class="math notranslate nohighlight">\(\omega\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.ArgumentOfPerigee.from_u_nu">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_u_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.ArgumentOfPerigee.from_u_nu" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the argument of perigee</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>float</em>) – argument of latitude in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+<li><p><strong>nu</strong> (<em>float</em>) – true anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>argument of perigee in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>find equation reference</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Conversions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Conversions</span></span><a class="headerlink" href="#openspace.math.functions.Conversions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to perform various unit conversions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>defined by each static method</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>defined by each static method</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Conversions.dms_to_radians">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dms_to_radians</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Conversions.dms_to_radians" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate an angle in radians that has been defined in degrees, minutes, and seconds</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d</strong> (<em>float</em>) – degrees in angle</p></li>
+<li><p><strong>m</strong> (<em>float</em>) – minute of angle</p></li>
+<li><p><strong>s</strong> (<em>float</em>) – second of angle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>angle in radians</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Conversions.hms_to_decimal_day">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hms_to_decimal_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Conversions.hms_to_decimal_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the float value of the day given an hour, minute, second representation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hr</strong> (<em>float</em>) – hour of day</p></li>
+<li><p><strong>m</strong> (<em>float</em>) – minute of day</p></li>
+<li><p><strong>s</strong> (<em>float</em>) – second of day</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the time in days</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.EccentricAnomaly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EccentricAnomaly</span></span><a class="headerlink" href="#openspace.math.functions.EccentricAnomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve eccentric anomaly</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>eccentric anomaly will commonly be referenced as <span class="math notranslate nohighlight">\(E\)</span> in documentation</p>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EccentricAnomaly.TOLERANCE">
+<span class="sig-name descname"><span class="pre">TOLERANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-12</span></em><a class="headerlink" href="#openspace.math.functions.EccentricAnomaly.TOLERANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>the tolerance used to stop the recursive solutions of Kepler’s equation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.EccentricAnomaly.from_ma_e">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ma_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.EccentricAnomaly.from_ma_e" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the eccentric anomaly using algorithm 2 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[E_{n+1} = E_n + \left(\frac{M-E_n+e\sin{(E_n)}}{1-e\cos{(E_n)}}\right)\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="math notranslate nohighlight">\(E_0 = M - e\)</span> for <span class="math notranslate nohighlight">\(-\pi&lt;M&lt;0\)</span> or <span class="math notranslate nohighlight">\(M&gt;\pi\)</span>
+otherwise <span class="math notranslate nohighlight">\(E_0 = M + e\)</span></p>
+<p>looping continues until <span class="math notranslate nohighlight">\(\vert E_{n+1} - E_n\vert &lt; tolerance\)</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ma</strong> (<em>float</em>) – mean anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentric anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.EccentricAnomaly.from_rdv_r_a_n">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_rdv_r_a_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r_dot_v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.EccentricAnomaly.from_rdv_r_a_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate eccentric anomaly</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r_dot_v</strong> (<em>float</em>) – dot product of position and velocity</p></li>
+<li><p><strong>r</strong> (<em>float</em>) – magnitude of position in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>n</strong> (<em>float</em>) – mean motion in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentric anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>find equation reference</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Eccentricity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Eccentricity</span></span><a class="headerlink" href="#openspace.math.functions.Eccentricity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to solve eccentricity of an ellipse</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>eccentricity will commonly be referenced as <span class="math notranslate nohighlight">\(e\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Eccentricity.from_a_b">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Eccentricity.from_a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate eccentricity using equation 1-6 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[e = \frac{\sqrt{a^2-b^2}}{a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>b</strong> (<em>float</em>) – semi-minor axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentricity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method works any time <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are input with common units,
+but <span class="math notranslate nohighlight">\(km\)</span> is the preferred unit throughout this package to ensure computational
+consistency and accuracy.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Eccentricity.from_a_c">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_c</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Eccentricity.from_a_c" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate eccentricity using equation 1-2 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[e = \frac{c}{a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>c</strong> (<em>float</em>) – half the distance between focii in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentricity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method works any time <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are input with common units,
+but <span class="math notranslate nohighlight">\(km\)</span> is the preferred unit throughout this package to ensure computational
+consistency and accuracy.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Eccentricity.from_a_p">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Eccentricity.from_a_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate eccentricity using equation 2.62 in <a class="reference internal" href="orbits.html#orbits"><span class="std std-ref">Satellite Orbits: Models, Methods, and Applications</span></a></p>
+<div class="math notranslate nohighlight">
+\[e = \sqrt{1 - \frac{p}{a}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>p</strong> (<em>float</em>) – semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>eccentricity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method works any time <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(p\)</span> are input with common units,
+but <span class="math notranslate nohighlight">\(km\)</span> is the preferred unit throughout this package to ensure computational
+consistency and accuracy.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EquationsOfMotion</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve equations of motion</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.A">
+<span class="sig-name descname"><span class="pre">A</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve semi-major axis <span class="math notranslate nohighlight">\(a\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.SemiMajorAxis" title="openspace.math.functions.SemiMajorAxis"><code class="xref py py-class docutils literal notranslate"><span class="pre">SemiMajorAxis</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.B">
+<span class="sig-name descname"><span class="pre">B</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.B" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve semi-minor axis <span class="math notranslate nohighlight">\(b\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.SemiMinorAxis" title="openspace.math.functions.SemiMinorAxis"><code class="xref py py-class docutils literal notranslate"><span class="pre">SemiMinorAxis</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.E">
+<span class="sig-name descname"><span class="pre">E</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.E" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve eccentricity <span class="math notranslate nohighlight">\(e\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.Eccentricity" title="openspace.math.functions.Eccentricity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Eccentricity</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.EA">
+<span class="sig-name descname"><span class="pre">EA</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.EA" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve eccentric anomaly <span class="math notranslate nohighlight">\(E\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.EccentricAnomaly" title="openspace.math.functions.EccentricAnomaly"><code class="xref py py-class docutils literal notranslate"><span class="pre">EccentricAnomaly</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.F">
+<span class="sig-name descname"><span class="pre">F</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.F" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve flattening <span class="math notranslate nohighlight">\(f\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.Flattening" title="openspace.math.functions.Flattening"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flattening</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.H">
+<span class="sig-name descname"><span class="pre">H</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.H" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve areal velocity <span class="math notranslate nohighlight">\(h\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.ArealVelocity" title="openspace.math.functions.ArealVelocity"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArealVelocity</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.I">
+<span class="sig-name descname"><span class="pre">I</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve inclination <span class="math notranslate nohighlight">\(i\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.Inclination" title="openspace.math.functions.Inclination"><code class="xref py py-class docutils literal notranslate"><span class="pre">Inclination</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.MA">
+<span class="sig-name descname"><span class="pre">MA</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.MA" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve mean anomaly <span class="math notranslate nohighlight">\(M\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.MeanAnomaly" title="openspace.math.functions.MeanAnomaly"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanAnomaly</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.N">
+<span class="sig-name descname"><span class="pre">N</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.N" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve mean motion <span class="math notranslate nohighlight">\(n\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.MeanMotion" title="openspace.math.functions.MeanMotion"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanMotion</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.NU">
+<span class="sig-name descname"><span class="pre">NU</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.NU" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve true anomaly <span class="math notranslate nohighlight">\(\nu\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.TrueAnomaly" title="openspace.math.functions.TrueAnomaly"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrueAnomaly</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.P">
+<span class="sig-name descname"><span class="pre">P</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.P" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve semi-parameter <span class="math notranslate nohighlight">\(p\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.SemiParameter" title="openspace.math.functions.SemiParameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SemiParameter</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.RAAN">
+<span class="sig-name descname"><span class="pre">RAAN</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.RAAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve raan <span class="math notranslate nohighlight">\(\Omega\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.RightAscensionNode" title="openspace.math.functions.RightAscensionNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">RightAscensionNode</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.TAU">
+<span class="sig-name descname"><span class="pre">TAU</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.TAU" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve period <span class="math notranslate nohighlight">\(tau\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.Period" title="openspace.math.functions.Period"><code class="xref py py-class docutils literal notranslate"><span class="pre">Period</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.U">
+<span class="sig-name descname"><span class="pre">U</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.U" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve argument of latitude <span class="math notranslate nohighlight">\(u\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.ArgumentOfLatitude" title="openspace.math.functions.ArgumentOfLatitude"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentOfLatitude</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.V">
+<span class="sig-name descname"><span class="pre">V</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.V" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve velocity <span class="math notranslate nohighlight">\(v\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.VisVivaVelocity" title="openspace.math.functions.VisVivaVelocity"><code class="xref py py-class docutils literal notranslate"><span class="pre">VisVivaVelocity</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.W">
+<span class="sig-name descname"><span class="pre">W</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.W" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve argument of perigee <span class="math notranslate nohighlight">\(\omega\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.ArgumentOfPerigee" title="openspace.math.functions.ArgumentOfPerigee"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentOfPerigee</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.EquationsOfMotion.XI">
+<span class="sig-name descname"><span class="pre">XI</span></span><a class="headerlink" href="#openspace.math.functions.EquationsOfMotion.XI" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to solve specific mechanical energy <span class="math notranslate nohighlight">\(\xi\)</span></p>
+<p>alias of <a class="reference internal" href="#openspace.math.functions.SpecificMechanicalEnergy" title="openspace.math.functions.SpecificMechanicalEnergy"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpecificMechanicalEnergy</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Flattening">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Flattening</span></span><a class="headerlink" href="#openspace.math.functions.Flattening" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve flattening of an ellipse</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>flattening will commonly be referenced as <span class="math notranslate nohighlight">\(f\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Flattening.from_a_b">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Flattening.from_a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate flattening using equation 1-3 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[f = \frac{a-b}{a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>b</strong> (<em>float</em>) – semi-minor axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>flattening</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Inclination">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Inclination</span></span><a class="headerlink" href="#openspace.math.functions.Inclination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve inclination</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>inclination will commonly be referenced as <span class="math notranslate nohighlight">\(i\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Inclination.from_w">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Inclination.from_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the inclination</p>
+<div class="math notranslate nohighlight">
+\[i = \arctan{
+     \left(
+         \frac{
+             \sqrt{
+                 \vec{w}_{x}^2 + \vec{w}_{y}^2
+             }
+         }{
+             \vec{w}_{z}
+         }
+     \right)
+ }\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – normalized momentum vector <span class="math notranslate nohighlight">\(\hat{h}\)</span> in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inclination in <span class="math notranslate nohighlight">\(rad\)</span> where <span class="math notranslate nohighlight">\(0 \leq i &lt; \pi\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>document equation reference from Satellite Orbits</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.LegendrePolynomial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LegendrePolynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.functions.LegendrePolynomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.LegendrePolynomial.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.functions.LegendrePolynomial.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>stores the explicit solution to normalized legendre polynomials used in the geopotential calculations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phi</strong> (<em>float</em>) – geodetic latitude in radians</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.functions.LegendrePolynomial.p">
+<span class="sig-name descname"><span class="pre">p</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#openspace.math.functions.LegendrePolynomial.p" title="Permalink to this definition">¶</a></dt>
+<dd><p>the polynomial list of lists with indices n, m</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.MeanAnomaly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MeanAnomaly</span></span><a class="headerlink" href="#openspace.math.functions.MeanAnomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve mean anomaly</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>mean anomaly will commonly be referenced as <span class="math notranslate nohighlight">\(M\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.MeanAnomaly.from_ea_e">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_ea_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ea</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.MeanAnomaly.from_ea_e" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate mean anomaly using equation 2-4 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[M = E - e\sin{(E)}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ea</strong> (<em>float</em>) – eccentric anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.MeanMotion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MeanMotion</span></span><a class="headerlink" href="#openspace.math.functions.MeanMotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to calculate mean motion of an orbit</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>mean motion will commonly be referenced as <span class="math notranslate nohighlight">\(n\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.MeanMotion.from_a_mu">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_mu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.MeanMotion.from_a_mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the mean motion using equation 1-27 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[n = \frac{2\pi}{\tau} = \sqrt{\frac{\mu}{a^3}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean motion in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.MeanMotion.from_tau">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_tau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.MeanMotion.from_tau" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate mean motion using equation 1-27 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[n = \frac{2\pi}{\tau} = \sqrt{\frac{\mu}{a^3}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tau</strong> (<em>float</em>) – period of orbit in <span class="math notranslate nohighlight">\(s\)</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean motion in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Period">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Period</span></span><a class="headerlink" href="#openspace.math.functions.Period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to calculate the period of an orbit</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>period will commonly be referenced as <span class="math notranslate nohighlight">\(\tau\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Period.from_a_mu">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_mu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Period.from_a_mu" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the period using equation 1-26 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[\tau = 2\pi\sqrt{\frac{a^3}{\mu}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>period in <span class="math notranslate nohighlight">\(s\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.Radius">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Radius</span></span><a class="headerlink" href="#openspace.math.functions.Radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve the radius of an orbit</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>radius will commonly be referenced as <span class="math notranslate nohighlight">\(r\)</span> or <span class="math notranslate nohighlight">\(R\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.Radius.from_p_e_nu">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_p_e_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.Radius.from_p_e_nu" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the radius of an orbit using equation 1-24 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[r = \frac{p}{1+e\cos{(\nu)}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>float</em>) – semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+<li><p><strong>nu</strong> (<em>float</em>) – true anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>radius in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.RightAscensionNode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RightAscensionNode</span></span><a class="headerlink" href="#openspace.math.functions.RightAscensionNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve right ascension of ascending node (RAAN)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RAAN will commonly be referenced as <span class="math notranslate nohighlight">\(\Omega\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.RightAscensionNode.from_w">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_w</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.RightAscensionNode.from_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the right ascension of the ascending node</p>
+<div class="math notranslate nohighlight">
+\[\Omega = \arctan{\left(-\frac{\vec{w}_{x}}{\vec{w}_{y}}\right)}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>w</strong> (<a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – normalized momentum vector in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>right ascension of the ascending node in <span class="math notranslate nohighlight">\(rad\)</span> where <span class="math notranslate nohighlight">\(0 \leq \Omega &lt; 2\pi\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>document equation reference from Satellite Orbits</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMajorAxis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SemiMajorAxis</span></span><a class="headerlink" href="#openspace.math.functions.SemiMajorAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve semi-major axis of an ellipse</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the semi-major axis will commonly be referenced as <span class="math notranslate nohighlight">\(a\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMajorAxis.from_mu_n">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiMajorAxis.from_mu_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate semi-major axis using equation 1-29 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[a = \sqrt[3]{\frac{\mu}{n^2}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>n</strong> (<em>float</em>) – mean motion in <span class="math notranslate nohighlight">\(\frac{rad}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMajorAxis.from_mu_r_v">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_r_v</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiMajorAxis.from_mu_r_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the semi-major axis in km using equation 1-31 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[v = \sqrt{\frac{2\mu}{r}+\frac{\mu}{a}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>r</strong> (<em>float</em>) – magnitude of the position vector in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>v</strong> (<em>float</em>) – magnitude of the velocity vector in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMajorAxis.from_mu_tau">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_tau</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiMajorAxis.from_mu_tau" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate semi-major axis using equation 1-27 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[n = \frac{2\pi}{\tau} = \sqrt{\frac{\mu}{a^3}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>tau</strong> (<em>float</em>) – period in <span class="math notranslate nohighlight">\(s\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMinorAxis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SemiMinorAxis</span></span><a class="headerlink" href="#openspace.math.functions.SemiMinorAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve semi-minor axis of an ellipse</p>
+<p>the semi-minor axis will commonly be referenced as <span class="math notranslate nohighlight">\(b\)</span> in documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiMinorAxis.from_a_e">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiMinorAxis.from_a_e" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate semi-minor axis using equation 1-4 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[b = a\sqrt{1-e^2}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-minor axis in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiParameter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SemiParameter</span></span><a class="headerlink" href="#openspace.math.functions.SemiParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to solve the semi-parameter of an ellipse</p>
+<p>the semi-parameter will commonly be referenced as <span class="math notranslate nohighlight">\(p\)</span> in documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiParameter.from_a_b">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_b</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiParameter.from_a_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the semi-parameter using equation 1-9 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[p = \frac{b^2}{a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>b</strong> (<em>float</em>) – semi-minor axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiParameter.from_a_e">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiParameter.from_a_e" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the semi-parameter using equation 1-10 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[p = a(1-e^2)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SemiParameter.from_mu_h">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_h</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SemiParameter.from_mu_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the semi-parameter using equation 1-19 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[p = \frac{h^2}{\mu}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>h</strong> (<em>float</em>) – areal velocity magnitude in <span class="math notranslate nohighlight">\(\frac{km^2}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>semi-parameter in <span class="math notranslate nohighlight">\(km\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.SpecificMechanicalEnergy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SpecificMechanicalEnergy</span></span><a class="headerlink" href="#openspace.math.functions.SpecificMechanicalEnergy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve specific mechanical energy</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SME will commonly be referenced as <span class="math notranslate nohighlight">\(\xi\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SpecificMechanicalEnergy.from_mu_a">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_a</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SpecificMechanicalEnergy.from_mu_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate specific mechanical energy using equation 1-21 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[\xi = -\frac{\mu}{2a}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>specific mechanical energy <span class="math notranslate nohighlight">\(\frac{km^2}{s^2}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.SpecificMechanicalEnergy.from_mu_r_v">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_r_v</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.SpecificMechanicalEnergy.from_mu_r_v" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the specific mechanical energy using equation 1-20 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[\xi = \frac{v^2}{2} - \frac{\mu}{r}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>r</strong> (<em>float</em>) – distance from center of central body in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>v</strong> (<em>float</em>) – magnitude of velocity vector in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>specific mechanical energy in <span class="math notranslate nohighlight">\(\frac{km^2}{s^2}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.TrueAnomaly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TrueAnomaly</span></span><a class="headerlink" href="#openspace.math.functions.TrueAnomaly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>static class used to solve true anomaly</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>true anomaly will commonly be referenced as <span class="math notranslate nohighlight">\(\nu\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.TrueAnomaly.from_e_ea">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_e_ea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ea</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.TrueAnomaly.from_e_ea" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate true anomaly</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+<li><p><strong>ea</strong> (<em>float</em>) – eccentric anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>find equation reference</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.functions.VisVivaVelocity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VisVivaVelocity</span></span><a class="headerlink" href="#openspace.math.functions.VisVivaVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to calculate the velocity of an orbit</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>velocity will commonly be referenced as <span class="math notranslate nohighlight">\(v\)</span> in documentation</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.VisVivaVelocity.from_a_mu_r">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_a_mu_r</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.VisVivaVelocity.from_a_mu_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate magnitude of velocity using equation 1-22 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[v^2 = \mu\left(\frac{2}{r} - \frac{1}{a}\right)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>float</em>) – semi-major axis in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>r</strong> (<em>float</em>) – distance from center of central body in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>velocity magnitude in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.VisVivaVelocity.from_mu_r_e_nu">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_r_e_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.VisVivaVelocity.from_mu_r_e_nu" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the magnitude of velocity using equation 1-32 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[v = \sqrt{\frac{\mu}{r}\left(2 - \frac{1-e^2}{1+e\cos{\nu}}\right)}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>r</strong> (<em>float</em>) – distance from center of central body in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>e</strong> (<em>float</em>) – eccentricity</p></li>
+<li><p><strong>nu</strong> (<em>float</em>) – true anomaly in <span class="math notranslate nohighlight">\(rads\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>velocity in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.functions.VisVivaVelocity.from_mu_r_xi">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_mu_r_xi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.VisVivaVelocity.from_mu_r_xi" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the magnitude of velocity using equation 1-30 in <a class="reference internal" href="vallado.html#vallado"><span class="std std-ref">Fundamentals of Astrodynamics and Applications, 4th Edition</span></a></p>
+<div class="math notranslate nohighlight">
+\[v = \sqrt{2\left(\frac{\mu}{r}+\xi\right)}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mu</strong> (<em>float</em>) – gravitational constant time mass of central body combined units of <span class="math notranslate nohighlight">\(\frac{km^3}{s^2}\)</span></p></li>
+<li><p><strong>r</strong> (<em>float</em>) – distance from center of central body in <span class="math notranslate nohighlight">\(km\)</span></p></li>
+<li><p><strong>xi</strong> (<em>float</em>) – specific mechanical energy in <span class="math notranslate nohighlight">\(\frac{km^2}{s^2}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>velocity in <span class="math notranslate nohighlight">\(\frac{km}{s}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="openspace.math.functions.sign">
+<span class="sig-name descname"><span class="pre">sign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.functions.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>function to determine if a value is positive or negative</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>num</strong> (<em>float</em>) – expression to be signed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>1 if positive -1 if negative 0 if neither</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.math.linalg.html" class="btn btn-neutral float-right" title="openspace.math.linalg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.math.constants.html" class="btn btn-neutral float-left" title="openspace.math.constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1514 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.math.linalg &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.planning" href="openspace.planning.html" />
+    <link rel="prev" title="openspace.math.functions" href="openspace.math.functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.math.html">openspace.math</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="openspace.math.constants.html">openspace.math.constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.math.functions.html">openspace.math.functions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.math.linalg</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Matrix3D"><code class="docutils literal notranslate"><span class="pre">Matrix3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Matrix3by6"><code class="docutils literal notranslate"><span class="pre">Matrix3by6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Matrix6D"><code class="docutils literal notranslate"><span class="pre">Matrix6D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3"><code class="docutils literal notranslate"><span class="pre">Matrix6by3</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Vector3D"><code class="docutils literal notranslate"><span class="pre">Vector3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.math.linalg.Vector6D"><code class="docutils literal notranslate"><span class="pre">Vector6D</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.planning.html">openspace.planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.math.html">openspace.math</a> &raquo;</li>
+        
+      <li>openspace.math.linalg</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.math.linalg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.math.linalg">
+<span id="openspace-math-linalg"></span><h1>openspace.math.linalg<a class="headerlink" href="#module-openspace.math.linalg" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Matrix3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Matrix3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to perform operations on a 3x3 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row1</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – first row of matrix</p></li>
+<li><p><strong>row2</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – second row of matrix</p></li>
+<li><p><strong>row3</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – third row of matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.adjugate">
+<span class="sig-name descname"><span class="pre">adjugate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.adjugate" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix that is the adjugate of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>adjugate matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.cofactor">
+<span class="sig-name descname"><span class="pre">cofactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.cofactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix that is the cofactor of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cofactor matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.column_1">
+<span class="sig-name descname"><span class="pre">column_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.column_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector with elements equal to the first column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector with elements equal to the first column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.column_2">
+<span class="sig-name descname"><span class="pre">column_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.column_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector with elements equal to the second column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector with elements equal to the second column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.column_3">
+<span class="sig-name descname"><span class="pre">column_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.column_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector with elements equal to the third column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector with elements equal to the third column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.determinant">
+<span class="sig-name descname"><span class="pre">determinant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.determinant" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the determinant of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>determinant</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.diagonal">
+<span class="sig-name descname"><span class="pre">diagonal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector with components equal to the diagonal of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector equal to (xx, yy, zz)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.inverse">
+<span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix that is the inverse of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>inverse matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.multiply_matrix3by6">
+<span class="sig-name descname"><span class="pre">multiply_matrix3by6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><span class="pre">Matrix3by6</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><span class="pre">Matrix3by6</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.multiply_matrix3by6" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix that is the product of the calling 3x3 and an argument 3x6 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><em>Matrix3by6</em></a>) – 3x6 matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6">Matrix3by6</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.multiply_vector">
+<span class="sig-name descname"><span class="pre">multiply_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.multiply_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>performs matrix multiplication of the calling matrix and the argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – vector to be used in the multiplication</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product of the matrix multiplication</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.plus">
+<span class="sig-name descname"><span class="pre">plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix whose elements are equal to the sum of the calling and argument matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><em>Matrix3D</em></a>) – matrix to be used in the sum</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sum matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.row1">
+<span class="sig-name descname"><span class="pre">row1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix3D.row1" title="Permalink to this definition">¶</a></dt>
+<dd><p>first row of matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.row2">
+<span class="sig-name descname"><span class="pre">row2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix3D.row2" title="Permalink to this definition">¶</a></dt>
+<dd><p>second row of matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.row3">
+<span class="sig-name descname"><span class="pre">row3</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix3D.row3" title="Permalink to this definition">¶</a></dt>
+<dd><p>third row of matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.scaled">
+<span class="sig-name descname"><span class="pre">scaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.scaled" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix whose elements have been scaled by the argument</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> (<em>float</em>) – multiple to be used in the scale</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matrix with elements equal to the original scaled by the multiple</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3D.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3D.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix whose rows are equal to the columns of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>transposed matrix of the calling matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Matrix3by6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">row3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to perform operations for a 3x6 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row1</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – first row of the matrix</p></li>
+<li><p><strong>row2</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – second row of the matrix</p></li>
+<li><p><strong>row3</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – third row of the matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_1">
+<span class="sig-name descname"><span class="pre">column_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the first column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>first column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_2">
+<span class="sig-name descname"><span class="pre">column_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the second column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>second column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_3">
+<span class="sig-name descname"><span class="pre">column_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the third column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>third column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_4">
+<span class="sig-name descname"><span class="pre">column_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the fourth column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fourth column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_5">
+<span class="sig-name descname"><span class="pre">column_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the fifth column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fifth column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.column_6">
+<span class="sig-name descname"><span class="pre">column_6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.column_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the sixth column of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sixth column</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.multiply_matrix_6by3">
+<span class="sig-name descname"><span class="pre">multiply_matrix_6by3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.multiply_matrix_6by3" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix equal to the product of the calling matrix and the argument matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><em>Matrix6by3</em></a>) – matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.multiply_vector">
+<span class="sig-name descname"><span class="pre">multiply_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.multiply_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector that is the product of the calling matrix and the argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – vector to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix3by6.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix3by6.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix whose rows are equal to the columns of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the transpose of the calling matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3">Matrix6by3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Matrix6D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Matrix6D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to perform operations for a 6x6 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r1</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – first row of the matrix</p></li>
+<li><p><strong>r2</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – second row of the matrix</p></li>
+<li><p><strong>r3</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – third row of the matrix</p></li>
+<li><p><strong>r4</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – fourth row of the matrix</p></li>
+<li><p><strong>r5</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – fifth row of the matrix</p></li>
+<li><p><strong>r6</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – sixth row of the matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_1">
+<span class="sig-name descname"><span class="pre">column_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the first column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>first column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_2">
+<span class="sig-name descname"><span class="pre">column_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the second column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>second column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_3">
+<span class="sig-name descname"><span class="pre">column_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the third column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>third column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_4">
+<span class="sig-name descname"><span class="pre">column_4</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_4" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the fourth column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fourth column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_5">
+<span class="sig-name descname"><span class="pre">column_5</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_5" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the fifth column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>fifth column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.column_6">
+<span class="sig-name descname"><span class="pre">column_6</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.column_6" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the sixth column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sixth column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.diagonal">
+<span class="sig-name descname"><span class="pre">diagonal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements are equal to the diagonal of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector whose elements equal the diagonal</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.identity">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">identity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix with a diagonal with elements of 1 and off-diagonal elements of 0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the identity matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.minus">
+<span class="sig-name descname"><span class="pre">minus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix whose elements are equal to the difference of the elements in the calling and argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><em>Matrix6D</em></a>) – matrix to be used in the difference</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>difference matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.multiply_matrix">
+<span class="sig-name descname"><span class="pre">multiply_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.multiply_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix equal to the product of the calling and the argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><em>Matrix6D</em></a>) – matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.multiply_matrix_6by3">
+<span class="sig-name descname"><span class="pre">multiply_matrix_6by3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.multiply_matrix_6by3" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix equal to the product of the calling and argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><em>Matrix6by3</em></a>) – matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3">Matrix6by3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.multiply_vector">
+<span class="sig-name descname"><span class="pre">multiply_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.multiply_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector equal to the product of the calling matrix and the argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – vector to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.plus">
+<span class="sig-name descname"><span class="pre">plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix whose elements are equal to the sum of the elements in the calling and argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><em>Matrix6D</em></a>) – matrix to be used in the sum</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sum matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row1">
+<span class="sig-name descname"><span class="pre">row1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row1" title="Permalink to this definition">¶</a></dt>
+<dd><p>first row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row2">
+<span class="sig-name descname"><span class="pre">row2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row2" title="Permalink to this definition">¶</a></dt>
+<dd><p>second row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row3">
+<span class="sig-name descname"><span class="pre">row3</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row3" title="Permalink to this definition">¶</a></dt>
+<dd><p>third row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row4">
+<span class="sig-name descname"><span class="pre">row4</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row4" title="Permalink to this definition">¶</a></dt>
+<dd><p>fourth row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row5">
+<span class="sig-name descname"><span class="pre">row5</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row5" title="Permalink to this definition">¶</a></dt>
+<dd><p>fifth row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.row6">
+<span class="sig-name descname"><span class="pre">row6</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6D.row6" title="Permalink to this definition">¶</a></dt>
+<dd><p>sixth row of the matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6D.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6D.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix whose rows equal the columns of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>transpose of the calling matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Matrix6by3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">r6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>used to perform operations for a 6x3 matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r1</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – first row of the matrix</p></li>
+<li><p><strong>r2</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – second row of the matrix</p></li>
+<li><p><strong>r3</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – third row of the matrix</p></li>
+<li><p><strong>r4</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – fourth row of the matrix</p></li>
+<li><p><strong>r5</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – fifth row of the matrix</p></li>
+<li><p><strong>r6</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – sixth row of the matrix</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.column_1">
+<span class="sig-name descname"><span class="pre">column_1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.column_1" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the first column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>first column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.column_2">
+<span class="sig-name descname"><span class="pre">column_2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.column_2" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the second column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>second column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.column_3">
+<span class="sig-name descname"><span class="pre">column_3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.column_3" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector whose elements equal the third column of the matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>third column of the matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.multiply">
+<span class="sig-name descname"><span class="pre">multiply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.multiply" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix that is the product of the calling and argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><em>Matrix3D</em></a>) – matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3">Matrix6by3</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.multiply_matrix3by6">
+<span class="sig-name descname"><span class="pre">multiply_matrix3by6</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><span class="pre">Matrix3by6</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.multiply_matrix3by6" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix equal to the product of the calling and the argument matrices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat</strong> (<a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><em>Matrix3by6</em></a>) – matrix to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D">Matrix6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.multiply_vector">
+<span class="sig-name descname"><span class="pre">multiply_vector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.multiply_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector equal to the product of the calling matrix and the argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – vector to be used in the product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>product vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row1">
+<span class="sig-name descname"><span class="pre">row1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row1" title="Permalink to this definition">¶</a></dt>
+<dd><p>first row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row2">
+<span class="sig-name descname"><span class="pre">row2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row2" title="Permalink to this definition">¶</a></dt>
+<dd><p>second row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row3">
+<span class="sig-name descname"><span class="pre">row3</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row3" title="Permalink to this definition">¶</a></dt>
+<dd><p>third row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row4">
+<span class="sig-name descname"><span class="pre">row4</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row4" title="Permalink to this definition">¶</a></dt>
+<dd><p>fourth row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row5">
+<span class="sig-name descname"><span class="pre">row5</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row5" title="Permalink to this definition">¶</a></dt>
+<dd><p>fifth row of the matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.row6">
+<span class="sig-name descname"><span class="pre">row6</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.row6" title="Permalink to this definition">¶</a></dt>
+<dd><p>sixth row of the matrix</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Matrix6by3.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><span class="pre">Matrix3by6</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Matrix6by3.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a matrix whose rows equal the columns of the calling matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>transpose of the calling matrix</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6">Matrix3by6</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Vector3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Vector3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations on a 3-dimension vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – first component of the vector</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – second component of the vector</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – third component of the vector</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>overrides the string method so the elements can be viewed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string representation of the vector elements</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.angle">
+<span class="sig-name descname"><span class="pre">angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adj_vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the angle between two vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>adj_vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – second leg of the angle</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>angle in radians between the two vectors</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a replica of the vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3-D vector with elements equal to the calling vector</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.cross">
+<span class="sig-name descname"><span class="pre">cross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec_to_cross</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector orthogonal to the calling and argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec_to_cross</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – vector which will be used to complete the right-hand rule</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector produced using the right-hand rule that is orthogonal to the original vectors</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.dot">
+<span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec_to_dot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the dot product of the two vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec_to_dot</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – the second vector to be used in the dot product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sum of the element products</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.magnitude">
+<span class="sig-name descname"><span class="pre">magnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.magnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the length of the vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>square root of the sum of squares</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.minus">
+<span class="sig-name descname"><span class="pre">minus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec_to_subtract</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector whose elements equal the difference of the calling and argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec_to_subtract</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – vector to be included in the difference</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector with elements equal to the difference of the calling and argument vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.normalized">
+<span class="sig-name descname"><span class="pre">normalized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.normalized" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector parallel to the calling vector that is of length 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>unit vector of the calling vector</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.plus">
+<span class="sig-name descname"><span class="pre">plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec_to_add</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a vector whose elements equal the sum of the calling and argument vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec_to_add</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – vector to be included in the sum</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector with elements equal to the sum of the calling and argument vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.rotation_about_axis">
+<span class="sig-name descname"><span class="pre">rotation_about_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.rotation_about_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a vector that has been rotated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – axis of rotation</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – angle in radians of rotation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector that has been rotated</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.rotation_matrix">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the rotation matrix required for a rotation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axis</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – axis that will be used to rotate a vector around</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – angle in radians the vector will be rotated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transition matrix that will rotate a vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.scaled">
+<span class="sig-name descname"><span class="pre">scaled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.scaled" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a scaled copy of the calling vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scalar</strong> (<em>float</em>) – value that will be multiplied against all elements</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector equal to the calling vector scaled by the argument</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.with_angular_noise">
+<span class="sig-name descname"><span class="pre">with_angular_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ang_err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.with_angular_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate a new vector with angular noise applied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ang_err</strong> (<em>float</em>) – one-sigma anglular error in radians</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new vector offset using gaussian distribution for the angle</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.with_magnitude_noise">
+<span class="sig-name descname"><span class="pre">with_magnitude_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.with_magnitude_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate a new vector with noise applied to the magnitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>range_err</strong> (<em>float</em>) – one-sigma range error in units consistent with the calling vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new vector with the magnitude adjusted by gaussian distribution</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.with_noise">
+<span class="sig-name descname"><span class="pre">with_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">range_err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_err</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector3D.with_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate a new vector with noise applied to magnitude and direction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>range_err</strong> (<em>float</em>) – one-sigma range error in units consistent with the calling vector</p></li>
+<li><p><strong>ang_err</strong> (<em>float</em>) – one-sigma anglular error in radians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new vector with gaussian noise applied</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector3D.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>first component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector3D.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>second component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector3D.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector3D.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>third component of the vector</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Vector6D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.math.linalg.Vector6D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vz</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to perform operations on a vector that has 6 components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – first component of vector</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – second component of vector</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – third component of vector</p></li>
+<li><p><strong>vx</strong> (<em>float</em>) – fourth component of vector</p></li>
+<li><p><strong>vy</strong> (<em>float</em>) – fifth component of vector</p></li>
+<li><p><strong>vz</strong> (<em>float</em>) – sixth component of vector</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>overrides the string method so stored values will be printed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>string representation of the vector</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a replica of the current vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>6-D vector with components that match the calling vector</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.dot">
+<span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec_to_dot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the dot product of the two vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec_to_dot</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – the second vector to be used in the dot product</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>sum of the element products</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.from_position_and_velocity">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_position_and_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.from_position_and_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a 6-dimension vecto from 3-D position and velocity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – 3-D position vector</p></li>
+<li><p><strong>v</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><em>Vector3D</em></a>) – 3-D velocity vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>6-D state vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.minus">
+<span class="sig-name descname"><span class="pre">minus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the difference of the elements of the two vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – second vector to be included in the difference</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector whose elements are the difference of the calling and argument vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.plus">
+<span class="sig-name descname"><span class="pre">plus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></span></span><a class="headerlink" href="#openspace.math.linalg.Vector6D.plus" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates the sum of the elements of the two vectors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vec</strong> (<a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><em>Vector6D</em></a>) – second vector to be included in the sum</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>vector whose elements are sums of the calling and argument vector</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D">Vector6D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.vx">
+<span class="sig-name descname"><span class="pre">vx</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.vx" title="Permalink to this definition">¶</a></dt>
+<dd><p>fourth component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.vy">
+<span class="sig-name descname"><span class="pre">vy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.vy" title="Permalink to this definition">¶</a></dt>
+<dd><p>fifth component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.vz">
+<span class="sig-name descname"><span class="pre">vz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.vz" title="Permalink to this definition">¶</a></dt>
+<dd><p>sixth component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.x">
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.x" title="Permalink to this definition">¶</a></dt>
+<dd><p>first component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.y">
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.y" title="Permalink to this definition">¶</a></dt>
+<dd><p>second component of the vector</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.math.linalg.Vector6D.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.math.linalg.Vector6D.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>third component of the vector</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.planning.html" class="btn btn-neutral float-right" title="openspace.planning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.math.functions.html" class="btn btn-neutral float-left" title="openspace.math.functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.estimation.filtering &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.estimation.obs" href="openspace.estimation.obs.html" />
+    <link rel="prev" title="openspace.estimation" href="openspace.estimation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.estimation.filtering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.estimation.filtering.RelativeKalman"><code class="docutils literal notranslate"><span class="pre">RelativeKalman</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.estimation.obs.html">openspace.estimation.obs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.estimation.iod.html">openspace.estimation.iod</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.math.html">openspace.math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.planning.html">openspace.planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.estimation.html">openspace.estimation</a> &raquo;</li>
+        
+      <li>openspace.estimation.filtering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.estimation.filtering.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.estimation.filtering">
+<span id="openspace-estimation-filtering"></span><h1>openspace.estimation.filtering<a class="headerlink" href="#module-openspace.estimation.filtering" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RelativeKalman</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.propagators.relative.html#openspace.propagators.relative.Hill" title="openspace.propagators.relative.Hill"><span class="pre">Hill</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.DEFAULT_COVARIANCE">
+<span class="sig-name descname"><span class="pre">DEFAULT_COVARIANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;openspace.math.linalg.Matrix6D</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.DEFAULT_COVARIANCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Covariance matrix to be used when the filter is initialized (km and km/s)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.DEFAULT_NOISE">
+<span class="sig-name descname"><span class="pre">DEFAULT_NOISE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;openspace.math.linalg.Matrix6D</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.DEFAULT_NOISE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processing noise of the system</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.H">
+<span class="sig-name descname"><span class="pre">H</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3by6" title="openspace.math.linalg.Matrix3by6"><span class="pre">Matrix3by6</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;openspace.math.linalg.Matrix3by6</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.H" title="Permalink to this definition">¶</a></dt>
+<dd><p>Observation matrix of a position-only system</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.HT">
+<span class="sig-name descname"><span class="pre">HT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;openspace.math.linalg.Matrix6by3</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.HT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposed H</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.I">
+<span class="sig-name descname"><span class="pre">I</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;openspace.math.linalg.Matrix6D</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.I" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix with a diagonal of all 1 and off-diagonal of 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">propagator</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.propagators.relative.html#openspace.propagators.relative.Hill" title="openspace.propagators.relative.Hill"><span class="pre">Hill</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>class used to act as the navigation filter for a position-only measurement source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time filter is to be initialized</p></li>
+<li><p><strong>propagator</strong> (<a class="reference internal" href="openspace.propagators.relative.html#openspace.propagators.relative.Hill" title="openspace.propagators.relative.Hill"><em>Hill</em></a>) – estimated Hill state of the spacecraft being observed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.angular_error">
+<span class="sig-name descname"><span class="pre">angular_error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.angular_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>error in radians of the current measurement</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.epoch">
+<span class="sig-name descname"><span class="pre">epoch</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>current time of the filter state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.f">
+<span class="sig-name descname"><span class="pre">f</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.f" title="Permalink to this definition">¶</a></dt>
+<dd><p>state transition matrix for the filter state</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.gain">
+<span class="sig-name descname"><span class="pre">gain</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.gain" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the gain of the system</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.k">
+<span class="sig-name descname"><span class="pre">k</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6by3" title="openspace.math.linalg.Matrix6by3"><span class="pre">Matrix6by3</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.k" title="Permalink to this definition">¶</a></dt>
+<dd><p>gain of the filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.p00">
+<span class="sig-name descname"><span class="pre">p00</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.p00" title="Permalink to this definition">¶</a></dt>
+<dd><p>current covariance of the state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.p10">
+<span class="sig-name descname"><span class="pre">p10</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.p10" title="Permalink to this definition">¶</a></dt>
+<dd><p>predicted covariance of the state</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate predicted state and covariance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.predict_covariance">
+<span class="sig-name descname"><span class="pre">predict_covariance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.predict_covariance" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the next covariance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.predict_state">
+<span class="sig-name descname"><span class="pre">predict_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.predict_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the expected future state of the system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dt</strong> (<em>float</em>) – number of seconds between current observation and previous observation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ob</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.estimation.obs.html#openspace.estimation.obs.SpaceObservation" title="openspace.estimation.obs.SpaceObservation"><span class="pre">SpaceObservation</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>include a new observation into the current estimation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ob</strong> (<a class="reference internal" href="openspace.estimation.obs.html#openspace.estimation.obs.SpaceObservation" title="openspace.estimation.obs.SpaceObservation"><em>SpaceObservation</em></a>) – observation to be added into the system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.propagator">
+<span class="sig-name descname"><span class="pre">propagator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.propagators.relative.html#openspace.propagators.relative.Hill" title="openspace.propagators.relative.Hill"><span class="pre">Hill</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.propagator" title="Permalink to this definition">¶</a></dt>
+<dd><p>propagator used to estimate the relative state of the observed spacecraft</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.q">
+<span class="sig-name descname"><span class="pre">q</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix6D" title="openspace.math.linalg.Matrix6D"><span class="pre">Matrix6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.q" title="Permalink to this definition">¶</a></dt>
+<dd><p>processing noise of the filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.r">
+<span class="sig-name descname"><span class="pre">r</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.r" title="Permalink to this definition">¶</a></dt>
+<dd><p>measurement uncertainty matrix</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.range_error">
+<span class="sig-name descname"><span class="pre">range_error</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.range_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>error in km of the current measurement</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>correct predicted state and covariance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.update_covariance">
+<span class="sig-name descname"><span class="pre">update_covariance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.update_covariance" title="Permalink to this definition">¶</a></dt>
+<dd><p>correct predicted covariance and store as current covariance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.update_state">
+<span class="sig-name descname"><span class="pre">update_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.update_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>correct predicted state and store as current state</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.x00">
+<span class="sig-name descname"><span class="pre">x00</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.x00" title="Permalink to this definition">¶</a></dt>
+<dd><p>current state of the filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.x10">
+<span class="sig-name descname"><span class="pre">x10</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector6D" title="openspace.math.linalg.Vector6D"><span class="pre">Vector6D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.x10" title="Permalink to this definition">¶</a></dt>
+<dd><p>predicted state of the filter</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.estimation.filtering.RelativeKalman.z">
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></em><a class="headerlink" href="#openspace.estimation.filtering.RelativeKalman.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>current measurement</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.estimation.obs.html" class="btn btn-neutral float-right" title="openspace.estimation.obs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.estimation.html" class="btn btn-neutral float-left" title="openspace.estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

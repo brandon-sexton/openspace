@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>openspace.bodies.celestial &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="openspace.bodies.terrestrial" href="openspace.bodies.terrestrial.html" />
+    <link rel="prev" title="openspace.bodies.artificial" href="openspace.bodies.artificial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="openspace.bodies.html">openspace.bodies</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="openspace.bodies.artificial.html">openspace.bodies.artificial</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">openspace.bodies.celestial</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.bodies.celestial.Earth"><code class="docutils literal notranslate"><span class="pre">Earth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.bodies.celestial.Moon"><code class="docutils literal notranslate"><span class="pre">Moon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openspace.bodies.celestial.Sun"><code class="docutils literal notranslate"><span class="pre">Sun</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="openspace.bodies.terrestrial.html">openspace.bodies.terrestrial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.estimation.html">openspace.estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.hardware.html">openspace.hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.math.html">openspace.math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.planning.html">openspace.planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.propagators.html">openspace.propagators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.coordinates.html">openspace.coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openspace.time.html">openspace.time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">modules</a> &raquo;</li>
+        
+          <li><a href="openspace.bodies.html">openspace.bodies</a> &raquo;</li>
+        
+      <li>openspace.bodies.celestial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/openspace.bodies.celestial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="module-openspace.bodies.celestial">
+<span id="openspace-bodies-celestial"></span><h1>openspace.bodies.celestial<a class="headerlink" href="#module-openspace.bodies.celestial" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Earth</span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class used to store Earth properties</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.C">
+<span class="sig-name descname"><span class="pre">C</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[1],</span> <span class="pre">[0,</span> <span class="pre">0],</span> <span class="pre">[-0.0010826261738522227,</span> <span class="pre">-2.6673947523748365e-10,</span> <span class="pre">1.574615325722917e-06],</span> <span class="pre">[2.5324105185677225e-06,</span> <span class="pre">2.1931496313133285e-06,</span> <span class="pre">3.0904390039164885e-07,</span> <span class="pre">1.0058351340882285e-07],</span> <span class="pre">[1.6198975999169731e-06,</span> <span class="pre">-5.086435604395839e-07,</span> <span class="pre">7.837454574045524e-08,</span> <span class="pre">5.9215017763966597e-08,</span> <span class="pre">-3.983204248731872e-09]]</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.C" title="Permalink to this definition">¶</a></dt>
+<dd><p>normalized c coefficients used for geopotential calculation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.DEGREE_AND_ORDER">
+<span class="sig-name descname"><span class="pre">DEGREE_AND_ORDER</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.DEGREE_AND_ORDER" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of zonal and tesseral terms to be used in the gravity calculation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.FLATTENING">
+<span class="sig-name descname"><span class="pre">FLATTENING</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.003352810665455685</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.FLATTENING" title="Permalink to this definition">¶</a></dt>
+<dd><p>value defining the ellipsoid of an oblate earth</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.MU">
+<span class="sig-name descname"><span class="pre">MU</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">398600.4418</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.MU" title="Permalink to this definition">¶</a></dt>
+<dd><p>G*M given in km^3/s^2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.OBLIQUITY_OF_ECLIPTIC">
+<span class="sig-name descname"><span class="pre">OBLIQUITY_OF_ECLIPTIC</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.40909280420293637</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.OBLIQUITY_OF_ECLIPTIC" title="Permalink to this definition">¶</a></dt>
+<dd><p>inclination of ecliptic relative to earth equator in radians</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.RADIUS">
+<span class="sig-name descname"><span class="pre">RADIUS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6378.137</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.RADIUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>distance from earth center to surface at the equator in km</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.S">
+<span class="sig-name descname"><span class="pre">S</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[[0],</span> <span class="pre">[0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1.7872706485240434e-09,</span> <span class="pre">-9.038727891965667e-07],</span> <span class="pre">[0,</span> <span class="pre">2.6808708940089767e-07,</span> <span class="pre">-2.114306209334826e-07,</span> <span class="pre">1.972215818357184e-07],</span> <span class="pre">[0,</span> <span class="pre">-4.492654321438083e-07,</span> <span class="pre">1.4813503724886002e-07,</span> <span class="pre">-1.2009461262296092e-08,</span> <span class="pre">6.524672871876868e-09]]</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.S" title="Permalink to this definition">¶</a></dt>
+<dd><p>normalized s coefficients used for geopotential calculation</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.USE_GEODETIC_MODEL">
+<span class="sig-name descname"><span class="pre">USE_GEODETIC_MODEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#openspace.bodies.celestial.Earth.USE_GEODETIC_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>boolean identifying if gravity will be modeled as a point-source or with non-spherical methods</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.geo_radius">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geo_radius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth.geo_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the radius of an orbit with a period equal to that of Earth’s rotation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>geosynchronous radius in km</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.nutation">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth.nutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix that can be used to transform a mod position to gcrf and vice versa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – valid time of the state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformation matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.obliquity_of_ecliptic_at_epoch">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">obliquity_of_ecliptic_at_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth.obliquity_of_ecliptic_at_epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the obliquity of ecliptic (epsilon) at a given epoch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time of interest</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true-of-date epsilon</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.precession">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth.precession" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix that can be used to transform a tod position to mod and vice versa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – valid time of the state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformation matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Earth.rotation">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D"><span class="pre">Matrix3D</span></a></span></span><a class="headerlink" href="#openspace.bodies.celestial.Earth.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>creates a matrix that can be used to transform an itrf position to tod and vice versa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – valid time of the state</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformation matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Matrix3D" title="openspace.math.linalg.Matrix3D">Matrix3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Moon">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Moon</span></span><a class="headerlink" href="#openspace.bodies.celestial.Moon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to store properties of the moon to be used in force modeling</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Moon.MU">
+<span class="sig-name descname"><span class="pre">MU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4902.800305555</span></em><a class="headerlink" href="#openspace.bodies.celestial.Moon.MU" title="Permalink to this definition">¶</a></dt>
+<dd><p>G*M in km^3/s^2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Moon.RADIUS">
+<span class="sig-name descname"><span class="pre">RADIUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1737.4</span></em><a class="headerlink" href="#openspace.bodies.celestial.Moon.RADIUS" title="Permalink to this definition">¶</a></dt>
+<dd><p>distance from center of moon to surface in km</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Moon.get_position">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.bodies.celestial.Moon.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate ECI position of moon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time of calculated position vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ECI position in km</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Sun</span></span><a class="headerlink" href="#openspace.bodies.celestial.Sun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class used to store properties of the sun for a force model</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.AU">
+<span class="sig-name descname"><span class="pre">AU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">149597870.691</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.AU" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distance to earth in km</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.COS_OBLIQUITY">
+<span class="sig-name descname"><span class="pre">COS_OBLIQUITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.9174820620768958</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.COS_OBLIQUITY" title="Permalink to this definition">¶</a></dt>
+<dd><p>cosine of obliquity of ecliptic</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.MU">
+<span class="sig-name descname"><span class="pre">MU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">132712440041.9</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.MU" title="Permalink to this definition">¶</a></dt>
+<dd><p>G*M in km^3/s^</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.P">
+<span class="sig-name descname"><span class="pre">P</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4.56e-06</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.P" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate of srp</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.SIN_OBLIQUITY">
+<span class="sig-name descname"><span class="pre">SIN_OBLIQUITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.3977771559141214</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.SIN_OBLIQUITY" title="Permalink to this definition">¶</a></dt>
+<dd><p>sine of obliquity of ecliptic</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.W_PLUS_W">
+<span class="sig-name descname"><span class="pre">W_PLUS_W</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4.938234585592756</span></em><a class="headerlink" href="#openspace.bodies.celestial.Sun.W_PLUS_W" title="Permalink to this definition">¶</a></dt>
+<dd><p>RAAN + argument of periapsis in radians</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openspace.bodies.celestial.Sun.get_position">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epoch</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><span class="pre">Epoch</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D"><span class="pre">Vector3D</span></a></span></span><a class="headerlink" href="#openspace.bodies.celestial.Sun.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculate the ECI position at a given epoch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>epoch</strong> (<a class="reference internal" href="openspace.time.html#openspace.time.Epoch" title="openspace.time.Epoch"><em>Epoch</em></a>) – time of calculated position vector</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ECI position in km</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="openspace.math.linalg.html#openspace.math.linalg.Vector3D" title="openspace.math.linalg.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="openspace.bodies.terrestrial.html" class="btn btn-neutral float-right" title="openspace.bodies.terrestrial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="openspace.bodies.artificial.html" class="btn btn-neutral float-left" title="openspace.bodies.artificial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

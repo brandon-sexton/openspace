@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>sensing example &mdash; openspace 2.5.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="finite maneuver example" href="finite.html" />
+    <link rel="prev" title="propagation example" href="propagation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> openspace
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">modules</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kalman.html">kalman filter example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="propagation.html">propagation example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sensing example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="finite.html">finite maneuver example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">references</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">openspace</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="examples.html">examples</a> &raquo;</li>
+        
+      <li>sensing example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/sensing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="sensing-example">
+<h1>sensing example<a class="headerlink" href="#sensing-example" title="Permalink to this heading">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">openspace.bodies.artificial</span> <span class="kn">import</span> <span class="n">Spacecraft</span>
+<span class="kn">from</span> <span class="nn">openspace.coordinates.states</span> <span class="kn">import</span> <span class="n">GCRF</span><span class="p">,</span> <span class="n">HCW</span><span class="p">,</span> <span class="n">StateConvert</span>
+<span class="kn">from</span> <span class="nn">openspace.math.linalg</span> <span class="kn">import</span> <span class="n">Vector3D</span><span class="p">,</span> <span class="n">Vector6D</span>
+<span class="kn">from</span> <span class="nn">openspace.time</span> <span class="kn">import</span> <span class="n">Epoch</span>
+
+<span class="c1"># Create scenario start epoch</span>
+<span class="n">start_epoch</span><span class="p">:</span> <span class="n">Epoch</span> <span class="o">=</span> <span class="n">Epoch</span><span class="o">.</span><span class="n">from_gregorian</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Create ECI state for target</span>
+<span class="n">target_state</span><span class="p">:</span> <span class="n">GCRF</span> <span class="o">=</span> <span class="n">GCRF</span><span class="p">(</span><span class="n">start_epoch</span><span class="p">,</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">42164</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.075</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">target</span><span class="p">:</span> <span class="n">Spacecraft</span> <span class="o">=</span> <span class="n">Spacecraft</span><span class="p">(</span><span class="n">target_state</span><span class="p">)</span>
+
+<span class="c1"># Step target forward 6 hours</span>
+<span class="n">target</span><span class="o">.</span><span class="n">step_to_epoch</span><span class="p">(</span><span class="n">start_epoch</span><span class="o">.</span><span class="n">plus_days</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+
+<span class="c1"># Define propagation end of 1 day after current target epoch</span>
+<span class="n">end_epoch</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">current_epoch</span><span class="p">()</span><span class="o">.</span><span class="n">plus_days</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Create chase state relative to target</span>
+<span class="n">rel_chase_state</span> <span class="o">=</span> <span class="n">HCW</span><span class="o">.</span><span class="n">from_state_vector</span><span class="p">(</span><span class="n">Vector6D</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0016</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">chase_state</span><span class="p">:</span> <span class="n">GCRF</span> <span class="o">=</span> <span class="n">StateConvert</span><span class="o">.</span><span class="n">hcw</span><span class="o">.</span><span class="n">to_gcrf</span><span class="p">(</span><span class="n">rel_chase_state</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">current_state</span><span class="p">())</span>
+<span class="n">chase</span><span class="p">:</span> <span class="n">Spacecraft</span> <span class="o">=</span> <span class="n">Spacecraft</span><span class="p">(</span><span class="n">chase_state</span><span class="p">)</span>
+
+<span class="c1"># Create empty data lists</span>
+<span class="n">times</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">resolutions</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="c1"># Place chase in target-tracking attitude</span>
+<span class="n">chase</span><span class="o">.</span><span class="n">track_state</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+
+<span class="c1"># Propagate</span>
+<span class="k">while</span> <span class="n">chase</span><span class="o">.</span><span class="n">current_epoch</span><span class="p">()</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">end_epoch</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+
+    <span class="c1"># Step vehicles and sync epochs</span>
+    <span class="n">chase</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">step_to_epoch</span><span class="p">(</span><span class="n">chase</span><span class="o">.</span><span class="n">current_epoch</span><span class="p">())</span>
+
+    <span class="c1"># Store epochs</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chase</span><span class="o">.</span><span class="n">current_epoch</span><span class="p">()</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="c1"># Store resolutions</span>
+    <span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chase</span><span class="o">.</span><span class="n">nfov</span><span class="o">.</span><span class="n">resolution</span><span class="p">(</span><span class="n">chase</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">target</span><span class="p">))</span> <span class="o">*</span> <span class="mf">1e5</span><span class="p">)</span>
+
+    <span class="c1"># Use binary reference of visible (1) or not (0)</span>
+    <span class="k">if</span> <span class="n">chase</span><span class="o">.</span><span class="n">detect</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="n">detections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">detections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Plot data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">resolutions</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="finite.html" class="btn btn-neutral float-right" title="finite maneuver example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="propagation.html" class="btn btn-neutral float-left" title="propagation example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Brandon Sexton.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
